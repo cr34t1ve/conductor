@@ -6,13 +6,13 @@ Find, play and queue your music from wherever on your mac. An macOS app in the v
 
 ## Features
 
-### Current Features
+### Current Bugs
 
-- Still working on it :)
+- Cannot type into textfield
 
-### Planned Features
+### Features
 
-- [ ] Global keyboard shortcut (⌘ + Space or customizable)
+- [x] Global keyboard shortcut (ctrl + Space)
 - [ ] Integration with multiple music sources:
   - [ ] Apple Music
   - [ ] Spotify

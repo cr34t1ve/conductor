@@ -11,6 +11,7 @@ struct ContentView: View {
     @State private var library = SongLibrary()
     @State private var searchText = ""
     @FocusState private var isSearchFocused: Bool
+    @EnvironmentObject private var windowManager: WindowManager
 
     var filteredSongs: [Song] {
         if searchText.isEmpty {
@@ -83,6 +84,17 @@ struct ContentView: View {
         .background(VisualEffectView(material: .underWindowBackground))
         .onAppear {
             isSearchFocused = true
+        }
+        .onChange(of: windowManager.isVisible) { isVisible in
+            if isVisible {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    isSearchFocused = true
+                }
+//                searchText = ""
+            }
+        }
+        .onExitCommand {
+            windowManager.hide()
         }
     }
 }
